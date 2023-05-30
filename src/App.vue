@@ -1,72 +1,58 @@
 <script>
-export default {
-  name: "App",
-  data(){
-    return {
-      appTitle: 'Brief Engine',
-      sidebar: false,
-      menuItems: [
-          { title: 'Home', path: '/home', icon: 'home' },
-          { title: 'Sign Up', path: '/signup', icon: 'face' },
-          { title: 'Sign In', path: '/signin', icon: 'lock_open' }
-     ]
-    }
-  },
-};
+import SearchInput from 'vue-search-input'
+import 'vue-search-input/dist/styles.css'
+
 </script>
 
 <template>
-<v-app>
-    <v-navigation-drawer v-model="sidebar" app>
-      <v-list>
-        <v-list-tile
-          v-for="item in menuItems"
-          :key="item.title"
-          :to="item.path">
-          <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>{{ item.title }}</v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
+<v-app id="inspire">
+    <v-app-bar flat>
+      <v-container class="fill-height d-flex align-center">
+        <v-avatar
+          class="me-10 ms-4"
+          color="grey-darken-1"
+          size="32"
+        ></v-avatar>
 
-    <v-toolbar app>
-      <span class="hidden-sm-and-up">
-        <v-toolbar-side-icon @click="sidebar = !sidebar">
-        </v-toolbar-side-icon>
-      </span>
-      <v-toolbar-title>
-        <router-link to="/" tag="span" style="cursor: pointer">
-          {{ appTitle }}
-        </router-link>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-xs-only">
         <v-btn
-          flat
-          v-for="item in menuItems"
-          :key="item.title"
-          :to="item.path">
-          <v-icon left dark>{{ item.icon }}</v-icon>
-          {{ item.title }}
+          variant="text"
+            to="/">Home
         </v-btn>
-      </v-toolbar-items>
-      <v-text-field
-        hide-details
-        prepend-icon="mdi-magnify"
-        single-line
-      ></v-text-field>
-    </v-toolbar>
-    
-    <v-content>
-      <router-view></router-view>
-    </v-content>
-    
+        <v-btn
+          variant="text"
+            to="/contact">Contact
+        </v-btn>
+
+        <v-spacer></v-spacer>
+
+        <v-responsive max-width="260">
+          <v-text-field
+            density="compact"
+            hide-details
+            variant="solo"
+          ></v-text-field>
+        </v-responsive>
+      </v-container>
+    </v-app-bar>
+
+    <v-main class="bg-grey-lighten-3">
+      <v-container>
+        <v-row>
+
+          <v-col>
+            <v-sheet
+              min-height="70vh"
+              rounded="lg"
+            ><br><br><br>
+              <router-view />
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
   </v-app>
+  
+
   
 </template>
 
-<style >
-
-</style>
