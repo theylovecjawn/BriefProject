@@ -5,32 +5,22 @@ import 'vue-search-input/dist/styles.css'
 </script>
 
 <template>
-<v-app id="inspire">
+  <v-app id="inspire">
     <v-app-bar flat>
       <v-container class="fill-height d-flex align-center">
-        <v-avatar
-          class="me-10 ms-4"
-          color="grey-darken-1"
-          size="32"
-        ></v-avatar>
+        <v-avatar class="me-10 ms-4" color="grey-darken-1" size="32"></v-avatar>
 
-        <v-btn
-          variant="text"
-            to="/">Home
+        <v-btn variant="text" to="/">Home
         </v-btn>
-        <v-btn
-          variant="text"
-            to="/contact">Contact
+        <v-btn variant="text" to="/searched">About
+        </v-btn>
+        <v-btn variant="text" to="/contact">Contact
         </v-btn>
 
         <v-spacer></v-spacer>
 
         <v-responsive max-width="260">
-          <v-text-field
-            density="compact"
-            hide-details
-            variant="solo"
-          ></v-text-field>
+          <v-text-field density="compact" hide-details variant="solo"></v-text-field>
         </v-responsive>
       </v-container>
     </v-app-bar>
@@ -40,10 +30,7 @@ import 'vue-search-input/dist/styles.css'
         <v-row>
 
           <v-col>
-            <v-sheet
-              min-height="70vh"
-              rounded="lg"
-            ><br><br><br>
+            <v-sheet min-height="70vh" rounded="lg"><br><br><br>
               <router-view />
             </v-sheet>
           </v-col>
@@ -51,8 +38,5 @@ import 'vue-search-input/dist/styles.css'
       </v-container>
     </v-main>
   </v-app>
-  
-
-  
 </template>
 

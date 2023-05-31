@@ -50,7 +50,7 @@
         alert(JSON.stringify(values, null, 2))
       })
 
-      return { name, phone, email, select, checkbox, items, submit, handleReset }
+      return { name, phone, email, submit, handleReset }
     },
   }
 </script>
@@ -77,20 +77,10 @@
       label="E-mail"
     ></v-text-field>
 
-    <v-select
-      v-model="select.value.value"
-      :items="items"
-      :error-messages="select.errorMessage.value"
-      label="Select"
-    ></v-select>
-
-    <v-checkbox
-      v-model="checkbox.value.value"
-      :error-messages="checkbox.errorMessage.value"
-      value="1"
-      label="Option"
-      type="checkbox"
-    ></v-checkbox>
+    <v-text-field
+      v-model="email.value.value"
+      label="Message"
+    ></v-text-field>
 
     <v-btn
       class="me-4"
