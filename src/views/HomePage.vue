@@ -2,11 +2,13 @@
 import { ref } from "vue"
 
 let userInput = ref('')
+let valueOfThing = ref()
 
-
-function onPressEnter() {
-     
-    console.log(userInput.value)
+async function asyncFunc() {
+    const result = await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + userInput.value);
+    console.log(result);
+    let jsonValue = await result.json();
+    valueOfThing.value = jsonValue
 }
 
 
@@ -22,7 +24,8 @@ function onPressEnter() {
 
             <v-text-field append-inner-icon="mdi-microphone" auto-select-first class="flex-full-width" density="comfortable"
                 placeholder="Search Brief for Your Question" prepend-inner-icon="mdi-magnify" rounded v-model="userInput"
-                theme="light" variant="solo" @keydown.enter="onPressEnter"></v-text-field>
+                theme="light" variant="solo" @keydown.enter="asyncFunc"></v-text-field>
+                <h1> {{ valueOfThing.definition }}</h1>
 
             <v-container class="text-center">
                 <v-row justify="center" dense>
