@@ -18,6 +18,7 @@ async function asyncFunc() {
 </script>
 
 <template>
+    <h1 style="font-size:60px;">Words 4 IDIOT$</h1>
     <v-card theme="dark" class="pa-8 d-flex justify-center flex-wrap">
         <v-responsive max-width="550">
         <v-img class="mx-auto mt-12 mb-16" max-height="140" max-width="240"></v-img>
@@ -25,14 +26,22 @@ async function asyncFunc() {
             <v-text-field append-inner-icon="mdi-microphone" auto-select-first class="flex-full-width" density="comfortable"
                 placeholder="Search Brief for Your Question" prepend-inner-icon="mdi-magnify" rounded v-model="userInput"
                 theme="light" variant="solo" @keydown.enter="asyncFunc"></v-text-field>
-                <h1> {{ valueOfThing.definition }}</h1>
-
+                <h1>Definition: </h1>
+                <ol v-for="value in valueOfThing?.[0]?.meanings?.[0]?.definitions">
+                  <br>
+                    <h2>{{ value.definition}}</h2>
+                
+                </ol>
+                
+ 
             <v-container class="text-center">
                 <v-row justify="center" dense>
-                    <v-col v-for="(shortcut, i) in shortcuts" :key="i" cols="auto">
+                    <v-col v-for="(shortcut, i) in shortcuts" :keys="i" cols="auto">
                         <v-card :href="shortcut.href" class="pa-4" flat rel="noopener noreferer" target="_blank"
                             width="112">
-                            <v-avatar :icon="shortcut.icon" color="white" variant="tonal" class="mb-2"></v-avatar>
+                            <v-avatar color="white" variant="tonal" class="mb-2">
+                                <v-img cover src="https://lh3.google.com/mail-doc-preview/1v9PJE9MlyYcguxUyhk-TVkRINBQnwte1=w3024-h1668?authuser=0"></v-img>
+                            </v-avatar>
 
                             <div class="text-caption text-truncate" v-text="shortcut.title"></div>
                         </v-card>
@@ -43,9 +52,8 @@ async function asyncFunc() {
                             <template v-slot:activator="{ props }">
                                 <v-card flat width="112" v-bind="props" class="pa-4">
 
-                                    <v-avatar icon="mdi-plus" color="white" variant="tonal" class="mb-2"></v-avatar>
-
-                                    <div class="text-caption text-truncate">Add shortcut</div>
+                                  
+                                    
                                 </v-card>
                             </template>
 
@@ -75,4 +83,10 @@ async function asyncFunc() {
         </v-responsive>
     </v-card>
 </template>
-<style></style>
+<style>
+h2{
+    background-color: aliceblue;
+    color: black;
+    border-radius: 8px;
+}
+</style>

@@ -12,7 +12,7 @@ import 'vue-search-input/dist/styles.css'
 
         <v-btn variant="text" to="/">Home
         </v-btn>
-        <v-btn variant="text" to="/searched">About
+        <v-btn variant="text" to="/aboutus">About
         </v-btn>
         <v-btn variant="text" to="/contact">Contact
         </v-btn>
@@ -40,3 +40,12 @@ import 'vue-search-input/dist/styles.css'
   </v-app>
 </template>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+h1{
+  font-family: 'Reenie Beanie', cursive; 
+  font-weight: bold;
+  text-align: center;
+  
+}
+</style>
