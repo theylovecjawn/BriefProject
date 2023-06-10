@@ -29,7 +29,7 @@ async function asyncFunc() {
                 <h1>Definition: </h1>
                 <ol v-for="value in valueOfThing?.[0]?.meanings?.[0]?.definitions">
                   <br>
-                    <h2>{{ value.definition}}</h2>
+                    <li><h2>{{ value.definition}}</h2></li>
                 
                 </ol>
                 
@@ -87,6 +87,6 @@ async function asyncFunc() {
 h2{
     background-color: aliceblue;
     color: black;
-    border-radius: 8px;
+    border-radius: 2px;
 }
 </style>

@@ -17,7 +17,7 @@
             return 'Phone number needs to be at least 9 digits.'
           },
           email (value) {
-            if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
+            if (/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i.test(value)) return true
 
             return 'Must be a valid e-mail.'
           },
@@ -36,6 +36,7 @@
       const name = useField('name')
       const phone = useField('phone')
       const email = useField('email')
+      const message = useField('message')
       const select = useField('select')
       const checkbox = useField('checkbox')
 
@@ -50,14 +51,15 @@
         alert(JSON.stringify(values, null, 2))
       })
 
-      return { name, phone, email, submit, handleReset }
+      return { name, phone, email, message, submit, handleReset }
     },
   }
 </script>
 
 <template>
   <h1>Hey Contact Us!</h1>
-<form @submit.prevent="submit">
+<form action="https://us-central1-steam-center-app-dev.cloudfunctions.net/formToEmail"
+    method="post">
     <v-text-field
       v-model="name.value.value"
       :counter="10"
@@ -79,7 +81,7 @@
     ></v-text-field>
 
     <v-text-field
-      v-model="email.value.value"
+      v-model="message.value.value"
       label="Message"
     ></v-text-field>
 
@@ -87,8 +89,10 @@
       class="me-4"
       type="submit"
     >
+  
       submit
     </v-btn>
+    <input name="send-to" value="cjohn@brooklynsteamcenter.org" hidden>
 
     <v-btn @click="handleReset">
       clear
