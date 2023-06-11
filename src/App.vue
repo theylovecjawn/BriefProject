@@ -22,7 +22,7 @@ import 'vue-search-input/dist/styles.css'
         <v-responsive max-width="260">
           <v-text-field density="compact" hide-details variant="solo"></v-text-field>
         </v-responsive>
-      </v-container>
+      </v-container> 
     </v-app-bar>
 
     <v-main class="bg-grey-lighten-3">
